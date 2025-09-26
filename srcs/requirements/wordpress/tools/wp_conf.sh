@@ -1,13 +1,13 @@
 #!/bin/bash
 
-# Attendre que MariaDB soit disponible
+
 echo "Attente de MariaDB..."
 while ! nc -z mariadb 3306; do
     sleep 1
 done
 echo "MariaDB est prêt !"
 
-# Installation de WP-CLI
+
 if [ ! -f /usr/local/bin/wp ]; then
     echo "Installation de WP-CLI..."
     curl -O https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar
@@ -15,14 +15,14 @@ if [ ! -f /usr/local/bin/wp ]; then
     mv wp-cli.phar /usr/local/bin/wp
 fi
 
-# Aller dans le dossier WordPress
+s
 cd /var/www/wordpress
 
-# Définir les permissions
+
 chmod -R 755 /var/www/wordpress/
 chown -R www-data:www-data /var/www/wordpress
 
-# Télécharger WordPress si pas déjà fait
+
 if [ ! -f /var/www/wordpress/wp-config.php ]; then
     echo "Téléchargement de WordPress..."
     wp core download --allow-root
@@ -51,7 +51,7 @@ if [ ! -f /var/www/wordpress/wp-config.php ]; then
         --allow-root
 fi
 
-# Configuration PHP-FPM
+
 sed -i 's/listen = \/run\/php\/php7.4-fpm.sock/listen = 9000/' /etc/php/7.4/fpm/pool.d/www.conf
 sed -i 's/;listen.owner = www-data/listen.owner = www-data/' /etc/php/7.4/fpm/pool.d/www.conf
 sed -i 's/;listen.group = www-data/listen.group = www-data/' /etc/php/7.4/fpm/pool.d/www.conf
