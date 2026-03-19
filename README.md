@@ -1,9 +1,10 @@
- Description :
+   Description :
 
 The Inception project focuses on building a complete infrastructure using Docker.
 (web server, database)
 
-Architecture : 
+
+   Architecture : 
 
 Nginx: web server with HTTPS
 
@@ -15,7 +16,8 @@ Dedicated Docker network
 
 Volumes for data persistence
 
-Security :
+
+   Security :
 
 HTTPS configuration (TLS)
 
