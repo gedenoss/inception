@@ -1,11 +1,11 @@
 ## Description
-The **Inception** project focuses on building a complete infrastructure using Docker, including a web server and a database.
+The **Inception** project focuses on building a complete infrastructure using Docker (web/server/database).
 
 ---
 
 ## Architecture
-- **Nginx** – Web server with HTTPS  
-- **WordPress** – Web application  
+- **Nginx** – Web server HTTPS  
+- **WordPress** – Web app  
 - **MariaDB** – Database  
 - Dedicated Docker network  
 - Volumes for data persistence  
